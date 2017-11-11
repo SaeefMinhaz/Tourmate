@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.kumu.firebaseapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".SimpleAccountInfo"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="n">
+        <activity android:name=".TravelEventActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
+
+        <activity android:name=".PostActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SetupActivity" />
+        <activity android:name=".MomentGalleryActivity" />
+        <activity android:name=".CreateTravelEventActivity" />
+        <activity android:name=".ExpenseRecordActivity" />
+        <activity android:name=".CreateExpenseRecordActivity" />
+        <activity android:name=".UpdateTravelEventActivity" />
+        <activity android:name=".UpdateExpenseRecordActivity">
+
+        </activity>
+        <activity
+            android:name=".GlobalActivity"
+            android:label="@string/app_name">
+        </activity>
+        <!--<activity
+            android:name=".activity.AboutActivity"
+            android:label="About"
+            android:parentActivityName=".activity.WeatherActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.a5corp.weather.activity.WeatherActivity" />
+        </activity>-->
+        <activity
+            android:name=".activity.WeatherActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".activity.FirstLaunch"
+            android:label="Enter City" />
+        <!--<activity-->
+        <!--android:name=".activity.LicenseActivity"-->
+        <!--android:label="License"/>-->
+
+        <service
+            android:name=".service.AlarmTriggerService"
+            android:enabled="true" />
+        <service
+            android:name=".service.NotificationBuilderService"
+            android:enabled="true" />
+
+        <receiver android:name=".receiver.StartupReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.MyReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".widget.SmallWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/small_widget_info" />
+        </receiver>
+        <receiver android:name=".widget.LargeWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/large_widget_info" />
+        </receiver>
+    </application>
+
+</manifest>
